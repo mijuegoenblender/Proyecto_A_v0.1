@@ -1,0 +1,17 @@
+import GameLogic as g
+import mathutils
+from mathutils import Vector
+scene = g.getCurrentScene()
+
+cont = g.getCurrentController()
+o= cont.owner
+
+Down = cont.sensors["Down"]
+Up = cont.sensors["Up"]
+def GetDownAndUp():
+    if Down.positive and o.localPosition[1] > -30.0:
+        o.localPosition[1] = o.localPosition[1]-0.5
+    if Up.positive and o.localPosition[1] < -10.0:
+        o.localPosition[1] = o.localPosition[1]+0.5
+        
+GetDownAndUp()
